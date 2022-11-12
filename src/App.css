@@ -1,0 +1,21 @@
+.gm-style-mtc, .gmnoprint {
+    display: none;
+}
+
+div#map a,
+div#map button,
+div.gm-bundled-control div.gmnoprint {
+    display: none !important;
+}
+
+.returnBtn::before {
+    content: '<';
+    color: #3A4562;
+    font-weight: bold;
+    position: absolute;
+    right: 90%;   
+}
+
+* {
+    font-family: "Proxima Nova";
+}

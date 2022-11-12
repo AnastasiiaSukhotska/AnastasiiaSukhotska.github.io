@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 400;
+
+
+  
+      src:
+           url("/ProximaNova/ProximaNova-Reguler.woff") format("woff");
+    }
