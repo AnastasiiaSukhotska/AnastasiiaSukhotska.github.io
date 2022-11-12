@@ -1,7 +1,3 @@
-type PropsType = {
-    fillColor: string
-}
-
 export const StarsSign = () => {
     return (
         <div className="col-start-4 col-span-5 flex">

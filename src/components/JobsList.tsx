@@ -1,28 +1,7 @@
 import { FC } from "react"
+import { JobDataType } from "../redux/reducer"
 import { JobItem } from "./JobItem"
 
-export type JobDataType = {
-    id: string
-    name: string
-    address: string
-    benefits: Array<string>
-    createdAt: string
-    description: string
-    email: string
-    employment_type: Array<string>
-    location: LocationType
-    phone: string
-    pictures: Array<string>
-    salary: string
-    title: string
-    updatedAt: string
-
-}
-
-export type LocationType = {
-    lat: number
-    long: number
-}
 
 type PropsType = {
     jobsData: Array<JobDataType>|null
@@ -48,7 +27,7 @@ export const JobsList: FC<PropsType> = ({ jobsData, choseJobElementHandler }) =>
                 title={j.title}
                 updatedAt={j.updatedAt}
                 choseJobElementHandler={choseJobElementHandler}
-            />) : 'hello'}
+            />) : 'Loading...'}
         </div>
     )
 }

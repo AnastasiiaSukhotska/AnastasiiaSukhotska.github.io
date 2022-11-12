@@ -1,6 +1,28 @@
-import { JobDataType } from "../components/JobsList";
 import {InferActionsTypes, BaseThunkType} from './state';
 import { jobAPI } from "../api/api";
+
+export type JobDataType = {
+    id: string
+    name: string
+    address: string
+    benefits: Array<string>
+    createdAt: string
+    description: string
+    email: string
+    employment_type: Array<string>
+    location: LocationType
+    phone: string
+    pictures: Array<string>
+    salary: string
+    title: string
+    updatedAt: string
+
+}
+
+export type LocationType = {
+    lat: number
+    long: number
+}
 
 const SET_JOBS_DATA = 'SET_JOBS_DATA';
 const SET_CHOSEN_JOB = 'SET_CHOSEN_JOB';
@@ -18,9 +40,6 @@ export const requestJobsData = (): ThunkType => {
         dispatch(actions.setJobsData(data))
     }
 } 
-
-
-
 
 const initialState = {
     jobsData: [] as Array<JobDataType>,

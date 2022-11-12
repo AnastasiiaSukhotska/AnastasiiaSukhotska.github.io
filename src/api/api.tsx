@@ -12,3 +12,5 @@ export const jobAPI = {
             .then(res => res.data)
     }
 }
+
+

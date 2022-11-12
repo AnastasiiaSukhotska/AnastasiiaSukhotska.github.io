@@ -15,13 +15,12 @@ const defaulOptions = {
     disableDoubleClickZoom: true,
     fullScreenControll: false,
     disableDefaultUI: true,
-
     styles: defaultTheme
-  }
+}
 
-  const containerStyle = {
+const containerStyle = {
     width: '100%',
-   height: '300px'
+    height: '300px'
 }
 
 type LocationType = {
@@ -35,11 +34,10 @@ type PropsType = {
 
 export const MapContainer: FC<PropsType> = ({ location }) => {
 
-    const [center, setCentr] =useState({ lat: Number(location.lat), lng: Number(location.long) });
+    const [center, setCentr] = useState({ lat: Number(location.lat), lng: Number(location.long) });
 
     useEffect(() => {
         setCentr({ lat: Number(location.lat), lng: Number(location.long) })
-        
     }, [location])
 
     const { isLoaded } = useJsApiLoader({
@@ -47,23 +45,19 @@ export const MapContainer: FC<PropsType> = ({ location }) => {
         googleMapsApiKey: "AIzaSyCMw-qmPiIoRy7gQqaDOenf4m8qXC86tQo"
     });
 
-
     const mapRef = useRef<google.maps.Map | null>(null);
 
+    const onLoad = (map: google.maps.Map): void => {
+        mapRef.current = map;
+    }
 
-  const onLoad = (map: google.maps.Map ): void => {     
-    mapRef.current = map;
-  }
-
-  const onUnmount = (): void => {
-    mapRef.current = null;
-  }
-
-
+    const onUnmount = (): void => {
+        mapRef.current = null;
+    }
     return (
         <div className=''>
             <div className='w-full'>
-               { isLoaded ? <GoogleMap
+                {isLoaded ? <GoogleMap
                     center={center}
                     mapContainerStyle={containerStyle}
                     zoom={10}
@@ -73,7 +67,7 @@ export const MapContainer: FC<PropsType> = ({ location }) => {
                 >
                     {center ? <MarkerF position={center} icon={{ url: '/icons/locationIcon.png' }} /> : 'Marker'}
                 </GoogleMap> : 'map is loading....'}
-                </div>
+            </div>
         </div>
     )
 }

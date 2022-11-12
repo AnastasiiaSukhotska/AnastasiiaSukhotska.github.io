@@ -1,5 +1,5 @@
 import {Action, applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
-import { JobDataType } from '../components/JobsList';
+import { JobDataType } from './reducer';
 import thunkMiddlewear, { ThunkAction } from 'redux-thunk';
 import { reducer } from './reducer';
 

@@ -1,17 +1,17 @@
 import moment from "moment"
-import { FC, useEffect } from "react"
+import { FC } from "react"
 import { connect } from "react-redux"
 import { Navigate } from "react-router"
 import { compose } from "redux"
 import { actions } from "../redux/reducer"
 import { AppStateType } from "../redux/state"
-import { JobDataType } from "./JobsList"
-import { MapContainer } from "./MapContainer"
-import { EmptyStarSign, SaveSign, ShareSign } from "./signs"
-import { Subtitle } from "./Titles"
-import { ContactsInformationCard } from './ContactsCard'
-import { CardElementBox } from "./CardsElementBox"
-import { List } from "./List"
+import { JobDataType } from "../redux/reducer"
+import { MapContainer } from "./Map/MapContainer"
+import { EmptyStarSign, SaveSign, ShareSign } from "../common/signs"
+import { Subtitle } from "../common/Titles"
+import { ContactsInformationCard } from '../common/ContactsCard'
+import { CardElementBox } from "../common/CardsElementBox"
+import { List } from "../common/List"
 
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -24,13 +24,7 @@ type MapDispatchToPropsType = {
     returnToList: () => void
 }
 
-
 const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => {
-
-
-    useEffect(() => {
-        console.log(chosenJobElement);
-    }, [chosenJobElement])
 
     const returnToListHandler = () => {
         returnToList();
@@ -50,16 +44,16 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                         <div className=' pb-8 sm:pb-1 flex sm:content-center sm:pt-0'>
                             <EmptyStarSign />
                             <SaveSign />
-                            <a href='#' className='mr-8 text-base sm:inline-block'> Save to my list</a>
-                            <a href='#' className='text-base  '>
+                            <a href='#' className='mr-8 text-base sm:inline-block sm:font-["Roboto"]'> Save to my list</a>
+                            <a href='#' className='text-base sm:font-["Roboto"]'>
                                 <ShareSign /> Share</a>
                         </div>
                     </div>
                     <button className='bg-btnBlue px-7 py-4 rounded-lg text-white text-xs uppercase hidden sm:flex my-16'>Apply now</button>
                     <div className='grid grid-cols-12 grid-flow-row items-center pb-3.5'>
-                        <div className='text-darkBlue font-bold text-2xl col-span-12 row-span-2 sm:col-span-8'>{chosenJobElement.title}</div>
+                        <div className='text-darkBlue font-bold proximaNova text-2xl col-span-12 row-span-2 sm:col-span-8'>{chosenJobElement.title}</div>
                         <div className='items-center h-full col-span-6 col-start-7 col-end-12 row-span-1 sm:col-span-4 justify-self-end flex flex-col-reverse sm:flex-col '>
-                            <div className='text-xl font-bold w-full flex justify-end sm:justify-start'>
+                            <div className='text-xl font-bold proximaNova w-full flex justify-end sm:justify-start'>
                                 <span>{chosenJobElement.salary}</span>
                             </div>
                             <div className='text-opacityBlue/80 text-lg px-1 w-full flex justify-self-end sm:justify-start'>
@@ -70,7 +64,7 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                             <span>{date}</span>
                         </div>
                     </div>
-                    <div>{chosenJobElement.description}</div>
+                    <div className='sm:font-["Roboto"]'>{chosenJobElement.description}</div>
                     <List title="Compensation & Benefits:" itemsArr={chosenJobElement.benefits} />
                     <button className='bg-btnBlue px-7 py-4 rounded-lg text-white text-xs uppercase mb-[135px] mx-auto block sm:mx-0'>Apply now</button>
                     <div className='flex flex-col sm:flex-col-reverse'>

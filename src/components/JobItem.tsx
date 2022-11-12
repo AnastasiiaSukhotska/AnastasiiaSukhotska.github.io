@@ -1,8 +1,9 @@
 import moment from "moment"
 import { FC, useEffect, useState } from "react"
-import { JobDataType } from "./JobsList"
-import { LocationSign, SaveSign } from "./signs"
-import { StarsSign } from "./StarsSign"
+import { JobDataType } from "../redux/reducer"
+import { LocationSign, SaveSign } from "../common/signs"
+import { StarsSign } from "../common/StarsSign"
+
 
 export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobDataType) => void }> = ({ name, id, email, address,
     benefits, createdAt, description,
@@ -46,7 +47,6 @@ export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobD
         getLocation(location.lat, location.long);
     }, [location])
 
-
     return (
         <div className='flex flex-col-reverse  sm:flex-row px-6 py-4 my-2 bg-cardBgc sm:bg-[#FFFFFF] rounded-lg shadow shadow-black-800 min-h-[165px]' onClick={() => {
             choseJobElement({
@@ -65,7 +65,7 @@ export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobD
                     <div className='text-base text-slate-400 py-3 text-[#878D9D]'>{`${name} · ${address}`}</div>
                     <div className='text-base text-slate-400 flex items-center'>
                         <LocationSign />
-                        <span className='ml-2 text-[#878D9D]'>{countryAddress ? countryAddress : 'Unknown location'}</span></div> 
+                        <span className='ml-2 text-[#878D9D]'>{countryAddress ? countryAddress : 'Unknown location'}</span></div>
                 </div>
             </div>
             <div className='sm: basis: 3/12 grid grid-cols-12 items-center text-sm pb-4'>
@@ -75,7 +75,7 @@ export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobD
                         <SaveSign />
                     </div>
                     <span className='flex flex-row justify-end w-full'>
-                   Posted {date}
+                        Posted {date}
                     </span>
                 </div>
             </div>
