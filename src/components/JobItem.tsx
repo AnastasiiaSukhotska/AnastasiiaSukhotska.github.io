@@ -48,7 +48,7 @@ export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobD
     }, [location])
 
     return (
-        <div className='flex flex-col-reverse  sm:flex-row px-6 py-4 my-2 bg-cardBgc sm:bg-[#FFFFFF] rounded-lg shadow shadow-black-800 min-h-[165px]' onClick={() => {
+        <div className='flex flex-col-reverse sm:flex-row px-6 py-4 my-2 bg-cardBgc sm:bg-[#FFFFFF] rounded-lg shadow shadow-black-800 min-h-[165px]' onClick={() => {
             choseJobElement({
                 name, id, email, address,
                 benefits, createdAt, description,
@@ -68,9 +68,9 @@ export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobD
                         <span className='ml-2 text-[#878D9D]'>{countryAddress ? countryAddress : 'Unknown location'}</span></div>
                 </div>
             </div>
-            <div className='sm: basis: 3/12 grid grid-cols-12 items-center text-sm pb-4'>
+            <div className='sm:basis-3/12 grid grid-cols-12 items-center text-sm pb-4'>
                 <StarsSign />
-                <div className='col-span-4 h-full flex justify-end sm:flex-col sm:justify-between sm:items-end text-[#878D9D]'>
+                <div className='col-span-4 sm:h-full flex justify-end sm:flex-col sm:justify-between sm:items-end text-[#878D9D]'>
                     <div className="hidden sm:block">
                         <SaveSign />
                     </div>
