@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Navigate to="/jobsList" />} />
           <Route element={<JobsContainer />} path='/jobsList' />
           <Route element={ < ChosenJobElement />} path='/chosenJob' />
-          <Route element={<div>404 not found</div>} path='*' />
+          <Route element={<JobsContainer />}  path='*' />
         </Routes>
       </div>
     </BrowserRouter>
