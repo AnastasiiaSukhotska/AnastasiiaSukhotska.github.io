@@ -14,6 +14,7 @@ import { CardElementBox } from "../common/CardsElementBox"
 import { List } from "../common/List"
 import { editingSalaryMethod } from "../common/Editors"
 import { ImagesBox } from "../common/ImagesBox"
+import { DescriptionJobContainer } from "../common/DescriptionJobComponent"
 
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -27,14 +28,14 @@ type MapDispatchToPropsType = {
 }
 
 const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => {
-
+ 
     const returnToListHandler = () => {
         returnToList();
     }
 
     let date = moment(chosenJobElement?.createdAt).fromNow();
 
-    let editedSalary = editingSalaryMethod(chosenJobElement?.salary ? chosenJobElement?.salary : '')
+    let editedSalary = editingSalaryMethod(chosenJobElement?.salary ? chosenJobElement?.salary : '');
 
     if (!chosenJobElement) {
         return <Navigate to='/' />
@@ -68,8 +69,7 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                             <span>{date}</span>
                         </div>
                     </div>
-                    <div className='sm:font-["Roboto"]'>{chosenJobElement.description}</div>
-                    <List title="Compensation & Benefits:" itemsArr={chosenJobElement.benefits} />
+                    <DescriptionJobContainer description={chosenJobElement.description} />
                     <button className='bg-btnBlue px-7 py-4 rounded-lg text-white text-xs uppercase mb-[135px] mx-auto block sm:mx-0'>Apply now</button>
                     <div className='flex flex-col sm:flex-col-reverse'>
                         <div>
