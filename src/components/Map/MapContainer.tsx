@@ -65,7 +65,7 @@ export const MapContainer: FC<PropsType> = ({ location }) => {
                     onUnmount={onUnmount}
                     options={defaulOptions}
                 >
-                    {center ? <MarkerF label='hhhhhhh' position={center} icon={{ url: '/icons/locationIcon.png' }} /> : 'Marker'}
+                    {center ? <MarkerF  position={center}  /> : 'Marker'}
                 </GoogleMap> : 'map is loading....'}
             </div>
         </div>
