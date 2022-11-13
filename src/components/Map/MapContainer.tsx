@@ -1,5 +1,6 @@
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import { FC, useEffect, useRef, useState } from 'react';
+import { LocationType } from '../../redux/reducer';
 import { defaultTheme } from './Theme';
 
 
@@ -23,11 +24,6 @@ const containerStyle = {
     height: '300px'
 }
 
-type LocationType = {
-    lat: number
-    long: number
-}
-
 type PropsType = {
     location: LocationType
 }
@@ -37,7 +33,7 @@ export const MapContainer: FC<PropsType> = ({ location }) => {
     const [center, setCentr] = useState({ lat: Number(location.lat), lng: Number(location.long) });
 
     useEffect(() => {
-        setCentr({ lat: Number(location.lat), lng: Number(location.long) })
+        setCentr({ lat: Number(location.lat), lng: Number(location.long) });
     }, [location])
 
     const { isLoaded } = useJsApiLoader({
@@ -54,8 +50,9 @@ export const MapContainer: FC<PropsType> = ({ location }) => {
     const onUnmount = (): void => {
         mapRef.current = null;
     }
+
     return (
-        <div className=''>
+        <div>
             <div className='w-full'>
                 {isLoaded ? <GoogleMap
                     center={center}
@@ -65,7 +62,7 @@ export const MapContainer: FC<PropsType> = ({ location }) => {
                     onUnmount={onUnmount}
                     options={defaulOptions}
                 >
-                    {center ? <MarkerF  position={center}  /> : 'Marker'}
+                    {center ? <MarkerF position={center} /> : ''}
                 </GoogleMap> : 'map is loading....'}
             </div>
         </div>

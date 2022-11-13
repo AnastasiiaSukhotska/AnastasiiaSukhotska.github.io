@@ -1,6 +1,7 @@
 import {InferActionsTypes, BaseThunkType} from './state';
 import { jobAPI } from "../api/api";
 
+
 export type JobDataType = {
     id: string
     name: string
@@ -16,7 +17,6 @@ export type JobDataType = {
     salary: string
     title: string
     updatedAt: string
-
 }
 
 export type LocationType = {
@@ -45,7 +45,9 @@ const initialState = {
     jobsData: [] as Array<JobDataType>,
     chosenJobElement: null as null|JobDataType
 }
+
 type InitialStateType = typeof initialState;
+
 export const reducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch(action.type) {
         case SET_JOBS_DATA: {
@@ -62,5 +64,5 @@ export const reducer = (state = initialState, action: ActionsType): InitialState
     }
 }
 
-type ActionsType = InferActionsTypes<typeof actions>
-export type ThunkType = BaseThunkType<ActionsType>
+type ActionsType = InferActionsTypes<typeof actions>;
+export type ThunkType = BaseThunkType<ActionsType>;

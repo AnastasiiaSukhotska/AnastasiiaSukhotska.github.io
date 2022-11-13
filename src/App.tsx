@@ -1,13 +1,13 @@
 import './App.css';
 import JobsContainer from './components/JobsContainer';
-import { Route, Routes, BrowserRouter, HashRouter } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import { Navigate } from 'react-router';
 import ChosenJobElement from './components/ChosenJobElement';
+
 
 function App() {
 
   return (
-
     <HashRouter>
       <div className="w-full ">
         <Routes >
@@ -18,7 +18,6 @@ function App() {
         </Routes>
       </div>
     </HashRouter>
-
   );
 }
 

@@ -1,4 +1,5 @@
 export const StarsSign = () => {
+
     return (
         <div className="col-start-4 col-span-5 flex">
             <svg className="w-[10px] h-[10px] sm:w-[18px] sm:h-[18px] fill-[#38415D] opacity-60 sm:opacity-100"  viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">

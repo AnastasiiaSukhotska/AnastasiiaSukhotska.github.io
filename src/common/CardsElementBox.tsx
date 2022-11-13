@@ -8,6 +8,7 @@ type PropsType = {
     bgColor: string
     borderColor: string
 }
+
 export const CardElementBox: FC<PropsType> = ({ textColor, bgColor, borderColor, title, mappingArray }) => {
 
     return (

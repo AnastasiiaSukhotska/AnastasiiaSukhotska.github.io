@@ -1,9 +1,10 @@
-import { FC } from "react"
+import { FC } from "react";
 
 type PropsType = {
     itemsArr: Array<string>
     title: string
 }
+
 export const List: FC<PropsType> = ({ itemsArr, title }) => {
     return (
         <div className="mb-5">

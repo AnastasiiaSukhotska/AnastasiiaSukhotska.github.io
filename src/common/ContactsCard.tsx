@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { LocationSign } from "./signs";
 
+
 type PropsType = {
     name: string
     address: string
@@ -9,6 +10,7 @@ type PropsType = {
 }
 
 export const ContactsInformationCard: FC<PropsType> = ({name, address, phone, email}) => {
+    
     return (
         <div className='py-8 px-16  bg-[#2A3047] text-[#E7EAF0]'>
             <h4 className='font-bold text-[#E7EAF0] pb-4'>{name}.</h4>

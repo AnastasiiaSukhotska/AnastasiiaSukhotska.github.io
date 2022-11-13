@@ -1,8 +1,8 @@
-import moment from "moment"
-import { FC, useEffect, useState } from "react"
-import { JobDataType } from "../redux/reducer"
-import { LocationSign, SaveSign } from "../common/signs"
-import { StarsSign } from "../common/StarsSign"
+import moment from "moment";
+import { FC, useEffect, useState } from "react";
+import { JobDataType } from "../redux/reducer";
+import { LocationSign, SaveSign } from "../common/signs";
+import { StarsSign } from "../common/StarsSign";
 
 
 export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobDataType) => void }> = ({ name, id, email, address,
@@ -35,7 +35,6 @@ export const JobItem: FC<JobDataType & { choseJobElementHandler: (chosenEl: JobD
                             return
                         }
                     }
-
                 }
             })
             .catch(error => {

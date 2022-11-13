@@ -13,7 +13,7 @@ import { ContactsInformationCard } from '../common/ContactsCard'
 import { CardElementBox } from "../common/CardsElementBox"
 import { List } from "../common/List"
 import { editingSalaryMethod } from "../common/Editors"
-import {v4 as uuid } from 'uuid';
+import { ImagesBox } from "../common/ImagesBox"
 
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -76,11 +76,8 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                             <div className='sm:border-b sm:border-lineColor pb-3'>
                                 <Subtitle title='Attached images' />
                             </div>
-                            <div className='flex flex-col items-center xs:flex-row sm:flex-col imgScreem:flex-row justify-between pt-4 pb-14'>
-                                {chosenJobElement ? chosenJobElement.pictures.map(i => <img className='h-44 w-56 rounded-md mb-4' src={i} key={uuid()} />) : ''}
-                            </div>
+                            <ImagesBox pictures={chosenJobElement.pictures} />
                         </div>
-
                         <div className='sm:mb-[135px]'>
                             <div className='sm:border-b sm:border-lineColor pb-3'>
                                 <Subtitle title='Additional info' />
@@ -90,7 +87,7 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                         </div>
                     </div>
                 </div>
-                <button className='returnBtn mb-[35px] sm:mb-0 relative py-4 mt-10 bg-blueCardColor pr-6 pl-12 rounded-md uppercase mt-3 sm:-ml-7' onClick={returnToListHandler}> return to job board</button>
+                <button className='returnBtn mb-[55px] sm:mb-0 relative py-4 mt-10 bg-blueCardColor pr-6 pl-12 rounded-md uppercase mt-3 sm:-ml-7' onClick={returnToListHandler}> return to job board</button>
             </div>
             <div className='sm:basis-3/12 rounded-md'>
                 <div className='rounded-md'>
