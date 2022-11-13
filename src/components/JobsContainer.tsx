@@ -30,10 +30,6 @@ const JobsContainer: FC<PropsType> = (props) => {
         props.setChosenJobElement(chosenEl)
     }
 
-    const unchoseJobElementHandler = () => {
-        props.returnToList()
-    }
-
     if (props.chosenJobElement) {
         return <Navigate to='/chosenJob' />
     }

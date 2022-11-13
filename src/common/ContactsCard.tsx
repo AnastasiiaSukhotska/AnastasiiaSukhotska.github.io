@@ -1,4 +1,5 @@
-import { FC } from "react"
+import { FC } from "react";
+import { LocationSign } from "./signs";
 
 type PropsType = {
     name: string
@@ -12,9 +13,7 @@ export const ContactsInformationCard: FC<PropsType> = ({name, address, phone, em
         <div className='py-8 px-16  bg-[#2A3047] text-[#E7EAF0]'>
             <h4 className='font-bold text-[#E7EAF0] pb-4'>{name}.</h4>
             <div className='flex items-center sm:items-start '>
-                <svg  width="15" height="25" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 18C6.5 18 13 11.9706 13 7C13 2.02944 10.0899 0 6.5 0C2.91015 0 0 2.02944 0 7C0 11.9706 6.5 18 6.5 18ZM6.5 10C8.433 10 10 8.433 10 6.5C10 4.567 8.433 3 6.5 3C4.567 3 3 4.567 3 6.5C3 8.433 4.567 10 6.5 10Z" fill="#878D9D" />
-                </svg><div className='text-[#E7EAF0] ml-2 sm:text-[#E8EBF3] sm:font-["Roboto"]'>{address}.</div>
+               <LocationSign width="15" height="25"/> <div className='text-[#E7EAF0] ml-2 sm:text-[#E8EBF3] sm:font-["Roboto"]'>{address}.</div>
             </div>
             <div className='text-white opacity-60 sm:opacity-100 sm:text-[#E8EBF3] sm:font-["Roboto"]'>{phone},</div>
             <div className='text-white opacity-60 sm:opacity-100 sm:text-[#E8EBF3] sm:font-["Roboto"]'>{email}</div>

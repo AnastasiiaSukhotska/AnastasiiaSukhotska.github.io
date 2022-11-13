@@ -12,6 +12,8 @@ import { Subtitle } from "../common/Titles"
 import { ContactsInformationCard } from '../common/ContactsCard'
 import { CardElementBox } from "../common/CardsElementBox"
 import { List } from "../common/List"
+import { editingSalaryMethod } from "../common/Editors"
+import {v4 as uuid } from 'uuid';
 
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType
@@ -31,6 +33,8 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
     }
 
     let date = moment(chosenJobElement?.createdAt).fromNow();
+
+    let editedSalary = editingSalaryMethod(chosenJobElement?.salary ? chosenJobElement?.salary : '')
 
     if (!chosenJobElement) {
         return <Navigate to='/' />
@@ -54,7 +58,7 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                         <div className='text-darkBlue font-bold proximaNova text-2xl col-span-12 row-span-2 sm:col-span-8'>{chosenJobElement.title}</div>
                         <div className='items-center h-full col-span-6 col-start-7 col-end-12 row-span-1 sm:col-span-4 justify-self-end flex flex-col-reverse sm:flex-col '>
                             <div className='text-xl font-bold proximaNova w-full flex justify-end sm:justify-start'>
-                                <span>{chosenJobElement.salary}</span>
+                                <span>{`€ ${editedSalary}`}</span>
                             </div>
                             <div className='text-opacityBlue/80 text-lg px-1 w-full flex justify-self-end sm:justify-start'>
                                 <span>Brutto, per year</span>
@@ -73,7 +77,7 @@ const ChosenJobElement: FC<PropsType> = ({ chosenJobElement, returnToList }) => 
                                 <Subtitle title='Attached images' />
                             </div>
                             <div className='flex flex-col items-center xs:flex-row sm:flex-col imgScreem:flex-row justify-between pt-4 pb-14'>
-                                {chosenJobElement ? chosenJobElement.pictures.map(i => <img className='h-44 w-56 rounded-md mb-4' src={i} key={i} />) : ''}
+                                {chosenJobElement ? chosenJobElement.pictures.map(i => <img className='h-44 w-56 rounded-md mb-4' src={i} key={uuid()} />) : ''}
                             </div>
                         </div>
 
